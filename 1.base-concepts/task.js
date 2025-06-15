@@ -24,16 +24,16 @@ function solveEquation(a, b, c) {
 
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  let body = amount - contribution;
+  const body = amount - contribution;
   if (body <= 0) return 0; //  Если первоначальный взнос больше или равен сумме всего кредита, то ничего не выводим
 
-  let percentMonth = (percent / 100) / 12; //переводим в месячную ставку
+  const percentMonth = (percent / 100) / 12; //переводим в месячную ставку
 
    // рассчет ежемесячного платежа
-  let monthlyFee = body * (percentMonth * Math.pow(1 + percentMonth, countMonths)) / (Math.pow(1 + percentMonth, countMonths) - 1);
+  const monthlyFee = body * (percentMonth * Math.pow(1 + percentMonth, countMonths)) / (Math.pow(1 + percentMonth, countMonths) - 1);
 
 
-  let sum = monthlyFee * countMonths + contribution;  // общая сумма кредита
+  const sum = monthlyFee * countMonths;  // общая сумма кредита
 
   return Number(sum.toFixed(2));  //отсекаем лишние цифры после запятой
 }
